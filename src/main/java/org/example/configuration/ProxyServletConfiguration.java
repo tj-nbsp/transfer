@@ -1,4 +1,4 @@
-package org.example;
+package org.example.configuration;
 
 import com.google.common.collect.ImmutableMap;
 import org.mitre.dsmiley.httpproxy.ProxyServlet;

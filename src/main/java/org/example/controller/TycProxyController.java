@@ -1,6 +1,7 @@
-package org.example;
+package org.example.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.util.DoHttpUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class TycProxyController {
                          HttpServletRequest request,
                          HttpServletResponse response) throws IOException {
         logger.info("代理的 url: {}", url);
-        String result = DoHttp.post(url, new ObjectMapper().writeValueAsString(params),
+        String result = DoHttpUtil.post(url, new ObjectMapper().writeValueAsString(params),
                 httpRequest -> httpRequest.header("x-auth-token", request.getHeader("x-auth-token")),
                 httpResponse -> {
             response.setStatus(httpResponse.getStatus());
